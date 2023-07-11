@@ -1,4 +1,4 @@
-export const getBook=()=> {
+export const getBook = () => {
   let books;
   if (localStorage.getItem('books') === null) {
     books = [];
@@ -7,19 +7,19 @@ export const getBook=()=> {
   }
 
   return books;
-}
+};
 
-export const addBook=(newBook)=>{
+export const addBook = (newBook) => {
   const books = getBook();
   books.push(newBook);
   localStorage.setItem('books', JSON.stringify(books));
-}
+};
 
-export const removeBook =(title)=>{
+export const removeBook = (title) => {
   const books = getBook();
   const index = books.findIndex((book) => book.title === title);
   if (index !== -1) {
     books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(books));
   }
-}
+};
